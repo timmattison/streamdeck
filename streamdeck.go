@@ -275,7 +275,7 @@ func (sd *StreamDeck) ClearBtn(btnIndex int) error {
 
 // ClearAllBtns fills all keys with the color black
 func (sd *StreamDeck) ClearAllBtns() {
-	for i := 14; i >= 0; i-- {
+	for i := NumButtons - 1; i >= 0; i-- {
 		sd.ClearBtn(i)
 	}
 }
