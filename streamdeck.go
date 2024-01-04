@@ -206,7 +206,7 @@ func (sd *StreamDeck) read() {
 		data = data[1:] // strip off the first byte; usage unknown, but it is always '\x01'
 
 		sd.Lock()
-		// we have to iterate over all 15 buttons and check if the state
+		// we have to iterate over all NumButtons buttons and check if the state
 		// has changed. If it has changed, execute the callback.
 		for i, b := range data {
 			myBtn, exists := sd.buttons[i]
@@ -483,7 +483,7 @@ func cropCenter(img image.Image, width, height int) image.Image {
 
 // checkValidKeyIndex checks that the keyIndex is valid
 func checkValidKeyIndex(keyIndex int) error {
-	if keyIndex < 0 || keyIndex > 15 {
+	if keyIndex < 0 || keyIndex > NumButtons {
 		return fmt.Errorf("invalid key index")
 	}
 	return nil
